@@ -1,6 +1,4 @@
 #include<iostream>
-#include <stdlib.h>
-#include<time.h>
 
 #define MAX 100
 
@@ -25,8 +23,9 @@ void Nhap(int dong, int cot) {
 
     for (int i = 0; i < dong; i++) {
         for (int j = 0; j < cot; j++) {
-            srand(time(0));
-            printf("a[%d][%d] = ", i, j); scanf("%d", &a[i][j]);
+            do {
+                printf("a[%d][%d] = ", i, j); scanf("%d", &a[i][j]);
+            } while (a[i][j] > 50);
         }
     }
 }
@@ -42,14 +41,37 @@ void Xuat(int dong, int cot) {
     }
 }
 
+void TimCotCoTongNho(int dong, int cot, int &cl) {
+    maTran a;
+    int tong = 0, z = 0;
+    int max = tong;
+    cl = 0;
+
+    for (int i = 0; i < dong; i++) {
+        for (int j = 0; j < cot; j++) {
+            tong += a[i][j];
+            z = j;
+        }
+        if (tong < max) {
+            max = tong;
+            cl = z;
+        }
+        tong = 0;
+    }
+
+    printf("\nCot co tong nho nhat la: %d", cl + 1);
+}
+
 int main() {
-    int a, b;
+    int a, b, cl;
 
     ThietLap(a, b);
 
-    printf("\n1) Nhap ma tran so thuc:\n");
+    printf("\nNhap ma tran so nguyen:\n");
     Nhap(a, b);
 
-    printf("\n2) Xuat ma tran:\n");
+    printf("\nXuat ma tran:\n");
     Xuat(a, b);
+
+    TimCotCoTongNho(a, b, cl);
 }
