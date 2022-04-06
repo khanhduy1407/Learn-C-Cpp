@@ -1,0 +1,27 @@
+/**
+ * Automatically generated file. DO NOT MODIFY
+*/
+
+===== MA TRẬN =====
+	3	1	5	2	4	6
+
+===== CÁC PHÉP TOÁN TRÊN MA TRẬN SỐ NGUYÊN =====
+Tổng: 21
+Hiệu: -21
+Tích: 720
+Thương: 0.0014
+Số Fibonacci thứ 6: 13
+
+===== MA TRẬN ĐÃ SẮP XẾP =====
++ Sắp xếp chọn trực tiếp:
+	1	2	3	4	5	6
++ Sắp xếp chèn trực tiếp:
+	6	5	4	3	2	1
++ Sắp xếp nổi bọt:
+	1	2	3	4	5	6
+
+===== GIẢI THUẬT TÌM KIẾM =====
++ Tuần tự:
+	Phần tử "4" nằm ở vị trí "3"
++ Nhị phân:
+	Không tìm thấy "7"
