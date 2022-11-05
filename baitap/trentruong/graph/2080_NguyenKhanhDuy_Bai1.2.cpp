@@ -46,7 +46,7 @@ void XuatMaTranKe(GRAPH g) {
 	}
 }
 
-void DiTimCacDinhLienThong(GRAPH g, int nhan[MAX], int i) {
+void DiTimCacDinhLienThong(GRAPH g, int nhan[], int i) {
 	for (int j = 0; j < g.soDinh; j++) {
 		if (g.a[i][j] != 0 && nhan[j] != nhan[i]) {
 			nhan[j] = nhan[i];
