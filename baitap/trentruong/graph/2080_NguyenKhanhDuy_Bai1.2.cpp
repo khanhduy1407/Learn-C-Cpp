@@ -72,7 +72,7 @@ void XetLienThong(GRAPH g) {
 	
 	printf("So thanh phan lien thong la %d\n", SoThanhPhanLT);
 	
-	for (i = 0; i <= SoThanhPhanLT; i++) {
+	for (i = 1; i <= SoThanhPhanLT; i++) {
 		printf("Thanh phan lien thong thu %d gom cac dinh ", i);
 		for (int j = 0; j < g.soDinh; j++) {
 			if (Nhan[j] == i) {
