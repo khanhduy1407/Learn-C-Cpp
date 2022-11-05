@@ -66,6 +66,43 @@ int KiemTraDoThiVoHuong(GRAPH g) {
 	return 1;
 }
 
+void DiTimCacDinhLienThong(GRAPH g, int nhan[], int i) {
+	for (int j = 0; j < g.soDinh; j++) {
+		if (g.a[i][j] != 0 && nhan[j] != nhan[i]) {
+			nhan[j] = nhan[i];
+			DiTimCacDinhLienThong(g, nhan, j);
+		}
+	}
+}
+
+void XetLienThong(GRAPH g) {
+	int Nhan[MAX];
+	int i;
+	for (i = 0; i < g.soDinh; i++)
+		Nhan[i] = 0;
+		
+	int SoThanhPhanLT = 0;
+	for (i = 0; i < g.soDinh; i++) {
+		if (Nhan[i] == 0) {
+			SoThanhPhanLT++;
+			Nhan[i] = SoThanhPhanLT;
+			DiTimCacDinhLienThong(g, Nhan, i);
+		}
+	}
+	
+	printf("So thanh phan lien thong la %d\n", SoThanhPhanLT);
+	
+	for (i = 1; i <= SoThanhPhanLT; i++) {
+		printf("Thanh phan lien thong thu %d gom cac dinh ", i);
+		for (int j = 0; j < g.soDinh; j++) {
+			if (Nhan[j] == i) {
+				printf("%d ", j);
+			}
+		}
+		printf("\n");
+	}
+}
+
 int main() {
 	GRAPH g;
 	
@@ -74,7 +111,7 @@ int main() {
 		
 		XuatMaTranKe(g);
 		
-		printf("Bam 1 phim bat ki de tien hanh kiem tra do thi...\n\n");
+		printf("\nBam 1 phim bat ki de tien hanh kiem tra do thi...\n");
 		
 		getch();
 		
@@ -87,8 +124,13 @@ int main() {
 			printf("Do thi vo huong!\n");
 		else
 			printf("Do thi KHONG vo huong!\n");
+		
+		printf("\nBam 1 phim bat ki de bat dau xet tinh lien thong cua do thi...\n");
+		
+		getch();
+		
+		XetLienThong(g);
 	}
 	
 	getch();
 }
-
